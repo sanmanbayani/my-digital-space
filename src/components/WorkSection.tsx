@@ -55,7 +55,7 @@ const WorkSection = () => {
               />
             </a>
             <div className="pt-4">
-              <h3 className="text-xl text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+              <h3 className="text-xl text-foreground">
                 {project.title}
               </h3>
               <p className="mt-1 text-sm text-muted-foreground">

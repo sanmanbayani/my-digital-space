@@ -5,7 +5,7 @@ const HeroSection = () => {
     <section className="relative min-h-screen overflow-hidden">
       {/* Nav */}
       <nav className="flex items-center justify-between px-8 py-6 md:px-16 lg:px-24">
-        <span className="text-lg font-bold tracking-tight text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+        <span className="text-lg font-bold tracking-tight text-foreground">
           Sanman Bayani
         </span>
         <div className="hidden gap-8 md:flex">

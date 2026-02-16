@@ -8,8 +8,8 @@ const AboutSection = () => {
         {/* Top row: 2 boxes */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {/* Quote card */}
-          <div className="flex flex-col justify-between rounded-2xl border border-border bg-card p-8">
-            <p className="text-lg leading-relaxed text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+          <div className="flex flex-col justify-between rounded-2xl border border-border bg-card p-8 md:min-h-[280px]">
+            <p className="text-lg font-semibold leading-relaxed text-foreground">
               "I believe great design bridges complex systems and the people who use them every day."
             </p>
             <div className="mt-8">
@@ -19,7 +19,7 @@ const AboutSection = () => {
           </div>
 
           {/* Image */}
-          <div className="overflow-hidden rounded-2xl">
+          <div className="overflow-hidden rounded-2xl md:min-h-[280px]">
             <img
               src={about1}
               alt="Sanman at work"
@@ -31,8 +31,8 @@ const AboutSection = () => {
 
         {/* Bottom row: 3 boxes */}
         <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-border bg-card p-8">
-            <h3 className="mb-4 text-xl text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+          <div className="rounded-2xl border border-border bg-card p-8 md:min-h-[240px]">
+            <h3 className="mb-4 text-xl text-foreground">
               Core Skills
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -56,7 +56,7 @@ const AboutSection = () => {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-2xl">
+          <div className="overflow-hidden rounded-2xl md:min-h-[240px]">
             <img
               src={about2}
               alt="Design process sketches"
@@ -65,8 +65,8 @@ const AboutSection = () => {
             />
           </div>
 
-          <div className="rounded-2xl border border-border bg-card p-8">
-            <h3 className="mb-4 text-xl text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+          <div className="rounded-2xl border border-border bg-card p-8 md:min-h-[240px]">
+            <h3 className="mb-4 text-xl text-foreground">
               Experience
             </h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
