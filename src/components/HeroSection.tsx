@@ -36,7 +36,7 @@ const HeroSection = () => {
         <img
           src={heroIllustration}
           alt="Design workspace illustration"
-          className="w-full object-cover"
+          className="w-full max-h-[480px] object-cover"
           loading="lazy"
         />
       </div>

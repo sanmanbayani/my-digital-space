@@ -39,19 +39,21 @@ const WorkSection = () => {
 
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-12">
         {projects.map((project) => (
-          <a
+          <div
             key={project.title}
-            href="#"
-            className={`group transition-transform duration-300 hover:-translate-y-1 ${project.span}`}
+            className={`${project.span}`}
           >
-            <div className="aspect-[4/3] overflow-hidden rounded-2xl">
+            <a
+              href="#"
+              className="group block aspect-[4/3] overflow-hidden rounded-2xl"
+            >
               <img
                 src={project.image}
                 alt={project.title}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
-            </div>
+            </a>
             <div className="pt-4">
               <h3 className="text-xl text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
                 {project.title}
@@ -60,7 +62,7 @@ const WorkSection = () => {
                 {project.description}
               </p>
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </section>
