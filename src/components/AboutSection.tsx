@@ -5,25 +5,26 @@ const AboutSection = () => {
   return (
     <section id="about" className="px-8 py-24 md:px-16 lg:px-24">
       <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {/* Image 1 */}
-          <div className="overflow-hidden rounded-2xl">
-            <img
-              src={about1}
-              alt="Sanman at work"
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
-          </div>
-
-          {/* Quote card */}
-          <div className="flex flex-col justify-between rounded-2xl border border-border bg-card p-8">
-            <p className="text-lg leading-relaxed text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
-              "I believe great design bridges complex systems and the people who use them every day."
-            </p>
-            <div className="mt-8">
-              <p className="font-medium text-foreground">Sanman Bayani</p>
-              <p className="text-sm text-muted-foreground">Product Designer</p>
+        {/* Top row: 2 boxes */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {/* Image 1 + Quote */}
+          <div className="rounded-2xl border border-border bg-card p-6">
+            <div className="overflow-hidden rounded-xl">
+              <img
+                src={about1}
+                alt="Sanman at work"
+                className="h-48 w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="mt-6">
+              <p className="text-lg leading-relaxed text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+                "I believe great design bridges complex systems and the people who use them every day."
+              </p>
+              <div className="mt-6">
+                <p className="font-medium text-foreground">Sanman Bayani</p>
+                <p className="text-sm text-muted-foreground">Product Designer</p>
+              </div>
             </div>
           </div>
 
@@ -38,8 +39,8 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {/* Skills row */}
-        <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+        {/* Bottom row: 3 boxes */}
+        <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
           <div className="rounded-2xl border border-border bg-card p-8">
             <h3 className="mb-4 text-xl text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
               Core Skills
@@ -85,6 +86,22 @@ const AboutSection = () => {
               <li className="flex justify-between">
                 <span className="text-foreground">NCS Groups</span>
                 <span>Associate Engineer</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="rounded-2xl border border-border bg-card p-8">
+            <h3 className="mb-4 text-xl text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+              Education
+            </h3>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li>
+                <span className="text-foreground">B.E. in Electronics</span>
+                <p>University of Pune</p>
+              </li>
+              <li>
+                <span className="text-foreground">UX Design Certificate</span>
+                <p>Google · Coursera</p>
               </li>
             </ul>
           </div>

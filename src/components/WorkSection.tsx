@@ -42,9 +42,9 @@ const WorkSection = () => {
           <a
             key={project.title}
             href="#"
-            className={`group relative overflow-hidden rounded-2xl bg-card transition-transform duration-300 hover:-translate-y-1 ${project.span}`}
+            className={`group transition-transform duration-300 hover:-translate-y-1 ${project.span}`}
           >
-            <div className="aspect-[4/3] overflow-hidden">
+            <div className="aspect-[4/3] overflow-hidden rounded-2xl">
               <img
                 src={project.image}
                 alt={project.title}
@@ -52,11 +52,11 @@ const WorkSection = () => {
                 loading="lazy"
               />
             </div>
-            <div className="p-6">
+            <div className="pt-4">
               <h3 className="text-xl text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
                 {project.title}
               </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-1 text-sm text-muted-foreground">
                 {project.description}
               </p>
             </div>
