@@ -32,11 +32,11 @@ const HeroSection = () => {
       </div>
 
       {/* Hero illustration */}
-      <div className="mt-12 w-full px-4 md:px-16 lg:px-24">
+      <div className="mt-12 w-full">
         <img
           src={heroIllustration}
           alt="Design workspace illustration"
-          className="mx-auto w-full max-w-5xl rounded-2xl object-cover"
+          className="w-full object-cover"
           loading="lazy"
         />
       </div>
