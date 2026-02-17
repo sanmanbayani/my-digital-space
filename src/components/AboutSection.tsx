@@ -3,39 +3,53 @@ import about2 from "@/assets/about-2.jpg";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="px-8 py-24 md:px-16 lg:px-24">
-      <div className="mx-auto max-w-6xl">
-        {/* Top row: 2 boxes */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {/* Quote card */}
-          <div className="flex flex-col justify-between rounded-2xl border border-border bg-card p-8 md:min-h-[280px]">
-            <p className="text-lg font-semibold leading-relaxed text-foreground">
-              "I believe great design bridges complex systems and the people who use them every day."
-            </p>
-            <div className="mt-8">
-              <p className="font-medium text-foreground">Sanman Bayani</p>
-              <p className="text-sm text-muted-foreground">Product Designer</p>
+    <section id="about" className="bg-[#F8F8F8] px-6 pt-24 pb-20 md:px-12 md:pt-32 md:pb-24 lg:px-24">
+      <div className="mx-auto max-w-7xl">
+        <header className="mb-14 text-center md:mb-20">
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            About
+          </h2>
+          <p className="mt-3 max-w-2xl mx-auto text-muted-foreground md:text-lg">
+            A bit about how I work, what I care about, and how to reach me.
+          </p>
+        </header>
+
+        {/* Top row: Video (wide) + Image */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-6 md:gap-6">
+          {/* 1st Bento - Video (wide) */}
+          <div className="md:col-span-4">
+            <div className="relative h-[300px] w-full overflow-hidden rounded-xl bg-muted">
+              <iframe
+                className="h-full w-full"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&loop=1&playlist=dQw4w9WgXcQ&mute=1&controls=1"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
 
-          {/* Image */}
-          <div className="overflow-hidden rounded-2xl md:min-h-[280px]">
-            <img
-              src={about1}
-              alt="Sanman at work"
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
+          {/* 2nd Bento - Image */}
+          <div className="md:col-span-2">
+            <div className="relative h-[300px] w-full overflow-hidden rounded-xl">
+              <img
+                src={about1}
+                alt="Sanman at work"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
 
-        {/* Bottom row: 3 boxes */}
-        <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-border bg-card p-8 md:min-h-[240px]">
-            <h3 className="mb-4 text-xl text-foreground">
+        {/* Bottom row: Skills + Image + About Me */}
+        <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-6">
+          {/* 3rd Bento - Skills (refined UI) */}
+          <div className="flex h-[300px] flex-col overflow-hidden rounded-xl border border-[#E5E5E5] bg-white p-6">
+            <h3 className="mb-2 shrink-0 text-base font-bold text-[#1a1a1a] md:text-lg">
               Core Skills
             </h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex min-h-0 flex-1 flex-wrap content-start gap-3 overflow-hidden">
               {[
                 "User-Centered Design",
                 "Interaction Design",
@@ -48,7 +62,7 @@ const AboutSection = () => {
               ].map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-full bg-secondary px-4 py-1.5 text-sm text-secondary-foreground"
+                  className="shrink-0 rounded-full bg-[#F0F0F0] px-4 py-2 text-sm font-medium text-[#1a1a1a] transition-colors hover:bg-[#E0E0E0]"
                 >
                   {skill}
                 </span>
@@ -56,7 +70,8 @@ const AboutSection = () => {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-2xl md:min-h-[240px]">
+          {/* 4th Bento - Image */}
+          <div className="relative h-[300px] w-full overflow-hidden rounded-xl">
             <img
               src={about2}
               alt="Design process sketches"
@@ -65,28 +80,22 @@ const AboutSection = () => {
             />
           </div>
 
-          <div className="rounded-2xl border border-border bg-card p-8 md:min-h-[240px]">
-            <h3 className="mb-4 text-xl text-foreground">
-              Experience
+          {/* 5th Bento - About Me Bio */}
+          <div className="flex h-[300px] flex-col overflow-hidden rounded-xl border border-[#E5E5E5] bg-white p-6">
+            <h3 className="mb-2 shrink-0 text-base font-bold text-[#1a1a1a] md:text-lg">
+              About Me
             </h3>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex justify-between">
-                <span className="text-foreground">TAS India Pvt. Ltd.</span>
-                <span>UI/UX Designer</span>
-              </li>
-              <li className="flex justify-between">
-                <span className="text-foreground">Independent Designer</span>
-                <span>Client Work</span>
-              </li>
-              <li className="flex justify-between">
-                <span className="text-foreground">ORU Phones</span>
-                <span>UI/UX Intern</span>
-              </li>
-              <li className="flex justify-between">
-                <span className="text-foreground">NCS Groups</span>
-                <span>Associate Engineer</span>
-              </li>
-            </ul>
+            <div className="min-h-0 flex-1 space-y-1.5 overflow-y-auto text-xs leading-relaxed text-[#666666] md:text-sm">
+              <p>
+                I'm a Product Designer passionate about creating digital experiences that are both beautiful and functional. With a background in engineering and design, I bridge the gap between technical constraints and user needs.
+              </p>
+              <p>
+                My approach centers on understanding users deeply, iterating quickly, and building products that people actually want to use. I believe great design should feel invisible—it should just work.
+              </p>
+              <p>
+                When I'm not designing, you'll find me exploring new design tools, contributing to open-source projects, or sharing knowledge with the design community.
+              </p>
+            </div>
           </div>
         </div>
       </div>

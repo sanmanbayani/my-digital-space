@@ -3,8 +3,19 @@ import heroIllustration from "@/assets/hero-illustration.jpg";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen overflow-hidden">
+      {/* Hero image - stacked behind, fills whole section */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={heroIllustration}
+          alt=""
+          className="h-full w-full object-cover"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-background/60" aria-hidden />
+      </div>
+
       {/* Nav */}
-      <nav className="flex items-center justify-between px-8 py-6 md:px-16 lg:px-24">
+      <nav className="relative z-10 flex items-center justify-between px-8 py-6 md:px-16 lg:px-24">
         <span className="text-lg font-bold tracking-tight text-foreground">
           Sanman Bayani
         </span>
@@ -22,23 +33,13 @@ const HeroSection = () => {
       </nav>
 
       {/* Hero content */}
-      <div className="flex flex-col items-center px-8 pt-16 text-center md:pt-24 lg:pt-32">
+      <div className="relative z-10 flex min-h-[calc(100vh-80px)] flex-col items-center justify-center px-8 text-center">
         <h1 className="max-w-3xl text-4xl leading-tight text-foreground md:text-5xl lg:text-6xl">
           I design scalable, usability-driven digital products
         </h1>
         <p className="mt-6 max-w-lg text-lg text-muted-foreground">
           Product Designer — B2B & B2C · Pune, India
         </p>
-      </div>
-
-      {/* Hero illustration */}
-      <div className="mt-12 w-full">
-        <img
-          src={heroIllustration}
-          alt="Design workspace illustration"
-          className="w-full max-h-[480px] object-cover"
-          loading="lazy"
-        />
       </div>
     </section>
   );
