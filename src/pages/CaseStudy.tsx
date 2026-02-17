@@ -107,12 +107,12 @@ const CaseStudy = () => {
   }
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background pb-32">
       {/* Header */}
       <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto px-8 py-4 md:px-16 lg:px-24">
+        <div className="container mx-auto px-6 py-4 md:px-12 lg:px-24">
           <Link to="/">
-            <Button variant="ghost" size="sm" className="gap-2">
+            <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground hover:text-foreground hover:bg-transparent">
               <ArrowLeft className="h-4 w-4" />
               Back to Work
             </Button>
@@ -120,96 +120,113 @@ const CaseStudy = () => {
         </div>
       </header>
 
-      {/* Hero Image */}
-      <div className="w-full">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-[60vh] object-cover"
-          loading="eager"
-        />
-      </div>
-
-      {/* Content */}
-      <article className="container mx-auto px-8 py-16 md:px-16 lg:px-24">
-        <div className="mx-auto max-w-4xl">
-          {/* Project Header */}
-          <div className="mb-12">
-            <div className="mb-4 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-              <span>{project.year}</span>
-              <span>•</span>
-              <span>{project.role}</span>
-              <span>•</span>
-              <span>{project.client}</span>
-            </div>
-            <h1 className="mb-4 text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
+      <article>
+        {/* Title & Metadata Section */}
+        <div className="container mx-auto px-6 pt-16 md:px-12 lg:px-24">
+          <div className="mx-auto max-w-3xl">
+            <h1 className="mb-8 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl lg:leading-[1.1]">
               {project.title}
             </h1>
-            <p className="text-xl text-muted-foreground">
-              {project.description}
-            </p>
-          </div>
 
-          {/* Challenge Section */}
-          <section className="mb-16">
-            <h2 className="mb-4 text-2xl font-semibold text-foreground">
-              The Challenge
-            </h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              {project.challenge}
-            </p>
-          </section>
-
-          {/* Solution Section */}
-          <section className="mb-16">
-            <h2 className="mb-4 text-2xl font-semibold text-foreground">
-              The Solution
-            </h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              {project.solution}
-            </p>
-          </section>
-
-          {/* Results Section */}
-          <section className="mb-16">
-            <h2 className="mb-4 text-2xl font-semibold text-foreground">
-              Results
-            </h2>
-            <ul className="space-y-3">
-              {project.results.map((result, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <span className="mt-1.5 h-2 w-2 rounded-full bg-primary" />
-                  <span className="text-lg text-muted-foreground">{result}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          {/* Technologies Section */}
-          <section className="mb-16">
-            <h2 className="mb-4 text-2xl font-semibold text-foreground">
-              Technologies & Tools
-            </h2>
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full bg-muted px-4 py-2 text-sm text-foreground"
-                >
-                  {tech}
-                </span>
-              ))}
+            <div className="grid grid-cols-2 gap-y-6 gap-x-8 border-y py-8 md:grid-cols-4">
+              <div>
+                <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Year</span>
+                <span className="font-medium">{project.year}</span>
+              </div>
+              <div>
+                <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Role</span>
+                <span className="font-medium">{project.role}</span>
+              </div>
+              <div>
+                <span className="mb-2 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Client</span>
+                <span className="font-medium">{project.client}</span>
+              </div>
             </div>
-          </section>
+          </div>
+        </div>
 
-          {/* Navigation */}
-          <div className="border-t pt-8">
-            <Link to="/">
-              <Button variant="outline" className="gap-2">
-                <ArrowLeft className="h-4 w-4" />
-                View All Projects
-              </Button>
-            </Link>
+        {/* Hero Image */}
+        <div className="container mx-auto mt-12 px-4 md:px-8 lg:px-12">
+          <div className="mx-auto max-w-6xl overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full object-cover aspect-video"
+              loading="eager"
+            />
+          </div>
+        </div>
+
+        {/* Content Section */}
+        <div className="container mx-auto px-6 py-16 md:px-12 lg:px-24">
+          <div className="mx-auto max-w-3xl space-y-16">
+
+            {/* Introduction / Description */}
+            <div className="text-xl leading-relaxed text-muted-foreground md:text-2xl">
+              {project.description}
+            </div>
+
+            {/* Challenge Section */}
+            <section>
+              <h2 className="mb-6 text-sm font-bold uppercase tracking-widest text-primary">
+                The Challenge
+              </h2>
+              <p className="text-xl leading-relaxed text-foreground/90">
+                {project.challenge}
+              </p>
+            </section>
+
+            {/* Solution Section */}
+            <section>
+              <h2 className="mb-6 text-sm font-bold uppercase tracking-widest text-primary">
+                The Solution
+              </h2>
+              <p className="text-xl leading-relaxed text-foreground/90">
+                {project.solution}
+              </p>
+            </section>
+
+            {/* Results Section */}
+            <section className="rounded-2xl bg-muted/30 p-8 md:p-10">
+              <h2 className="mb-6 text-sm font-bold uppercase tracking-widest text-primary">
+                Key Results
+              </h2>
+              <ul className="grid gap-4 md:grid-cols-2">
+                {project.results.map((result, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <span className="text-base text-foreground/80">{result}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            {/* Technologies Section */}
+            <section>
+              <h2 className="mb-6 text-sm font-bold uppercase tracking-widest text-muted-foreground">
+                Technologies & Tools
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border bg-background px-4 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:border-foreground/20"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </section>
+
+            {/* Navigation */}
+            <div className="border-t pt-12">
+              <Link to="/">
+                <Button variant="outline" size="lg" className="gap-2 group">
+                  <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+                  View All Projects
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </article>

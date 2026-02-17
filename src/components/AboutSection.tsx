@@ -81,19 +81,15 @@ const AboutSection = () => {
           </div>
 
           {/* 5th Bento - About Me Bio */}
-          <div className="flex h-[300px] flex-col overflow-hidden rounded-xl border border-[#E5E5E5] bg-white p-6">
-            <h3 className="mb-2 shrink-0 text-base font-bold text-[#1a1a1a] md:text-lg">
-              About Me
-            </h3>
-            <div className="min-h-0 flex-1 space-y-1.5 overflow-y-auto text-xs leading-relaxed text-[#666666] md:text-sm">
-              <p>
-                I'm a Product Designer passionate about creating digital experiences that are both beautiful and functional. With a background in engineering and design, I bridge the gap between technical constraints and user needs.
+          <div className="flex h-[300px] flex-col justify-center gap-6 overflow-hidden rounded-xl border border-[#E5E5E5] bg-white p-8">
+            <div className="space-y-2">
+              <p className="text-lg font-medium italic leading-relaxed text-[#1a1a1a]">
+                &ldquo;Bridging the gap between technical constraints and user needs.&rdquo;
               </p>
-              <p>
-                My approach centers on understanding users deeply, iterating quickly, and building products that people actually want to use. I believe great design should feel invisible—it should just work.
-              </p>
-              <p>
-                When I'm not designing, you'll find me exploring new design tools, contributing to open-source projects, or sharing knowledge with the design community.
+            </div>
+            <div className="space-y-2">
+              <p className="text-lg font-medium italic leading-relaxed text-[#1a1a1a]">
+                &ldquo;Great design should feel invisible&mdash;it should just work.&rdquo;
               </p>
             </div>
           </div>
