@@ -20,8 +20,8 @@ const AboutSection = () => {
           <div className="md:col-span-4">
             <div className="relative h-[300px] w-full overflow-hidden rounded-xl bg-muted">
               <iframe
-                className="h-full w-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&loop=1&playlist=dQw4w9WgXcQ&mute=1&controls=1"
+                className="h-full w-full scale-[1.5] pointer-events-none"
+                src="https://www.youtube.com/embed/k0QoDPhntcA?autoplay=1&loop=1&playlist=k0QoDPhntcA&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen

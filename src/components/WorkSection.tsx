@@ -3,6 +3,10 @@ import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
+import brandingCover from "@/assets/Branding-cover-image.gif";
+import project02Cover from "@/assets/Project02-01.jpg";
+
+
 
 const projects = [
   {
@@ -27,10 +31,10 @@ const projects = [
     colSpan: "md:col-span-3",
   },
   {
-    id: "move-fast-dont-break-trust",
-    title: "Move fast, don't break trust",
-    description: "Read about the design decisions behind the PhonePe app redesign.",
-    image: work4,
+    id: "forging-distinct-identity",
+    title: "Forging a distinct identity",
+    description: "Crafting a cohesive visual language that resonates with users and stands the test of time.",
+    image: project02Cover,
     colSpan: "md:col-span-3",
   },
 ];
@@ -62,13 +66,12 @@ const WorkSection = () => {
                   className="block w-full"
                 >
                   {/* Image Block - separate */}
-                  <div className={`relative mb-5 w-full overflow-hidden rounded-xl ${
-                    isLarge 
-                      ? "aspect-[16/9]" 
-                      : isBottomCard 
-                        ? "aspect-[2/1]" 
-                        : "aspect-[4/3]"
-                  }`}>
+                  <div className={`relative mb-5 w-full overflow-hidden rounded-xl ${isLarge
+                    ? "aspect-[16/9]"
+                    : isBottomCard
+                      ? "aspect-[2/1]"
+                      : "aspect-[4/3]"
+                    }`}>
                     <img
                       src={project.image}
                       alt={project.title}

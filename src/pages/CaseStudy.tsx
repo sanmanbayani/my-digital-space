@@ -1,10 +1,44 @@
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
+import brandingCover from "@/assets/Branding-cover-image.gif";
+
+// Project 00 Images
+import p0_1 from "@/assets/Project00-01.png";
+import p0_2 from "@/assets/Project00-02.png";
+import p0_3 from "@/assets/Project00-03.png";
+import p0_4 from "@/assets/Project00-04.png";
+import p0_5 from "@/assets/Project00-05.png";
+
+
+// Project 01 Images
+import p1_1 from "@/assets/Project01-01.png";
+import p1_2 from "@/assets/Project01-02.png";
+import p1_3 from "@/assets/Project01-03.png";
+import p1_4 from "@/assets/Project01-04.png";
+import p1_5 from "@/assets/Project01-05.png";
+import p1_6 from "@/assets/Project01-06.png";
+
+// Project 02 Images
+import p2_1 from "@/assets/Project02-01.jpg";
+import p2_2 from "@/assets/Project02-02.jpg";
+import p2_3 from "@/assets/Project02-03.jpg";
+import p2_4 from "@/assets/Project02-04.jpg";
+import p2_5 from "@/assets/Project02-05.jpg";
+
+// Project 03 Images
+import p3_1 from "@/assets/Project03-01.jpg";
+import p3_2 from "@/assets/Project03-02.gif";
+import p3_3 from "@/assets/Project03-03.jpg";
+import p3_4 from "@/assets/Project03-04.jpg";
+import p3_5 from "@/assets/Project03-05.jpg";
+
 
 // Project data - in a real app, this would come from an API or data file
 const projectData: Record<string, {
@@ -18,6 +52,12 @@ const projectData: Record<string, {
   solution: string;
   results: string[];
   technologies: string[];
+  subProjects?: {
+    id: string;
+    title: string;
+    description: string;
+    images: string[];
+  }[];
 }> = {
   "architecting-phonepe-consumer-app-voice": {
     title: "Architecting the PhonePe Consumer app's voice",
@@ -86,14 +126,74 @@ const projectData: Record<string, {
       "Successfully launched major redesign without breaking user trust"
     ],
     technologies: ["User Research", "Prototyping", "Design Systems", "A/B Testing", "Product Strategy"]
+  },
+  "forging-distinct-identity": {
+    title: "Forging a distinct identity",
+    description: "Crafting a cohesive visual language that resonates with users and stands the test of time.",
+    image: brandingCover,
+    year: "2024",
+    role: "Brand Designer",
+    client: "Multiple Clients",
+    challenge: "Creating distinct brand identities in saturated markets requires a deep understanding of core values and visual storytelling. The challenge was to develop unique visual systems that are both flexible enough for various applications and consistent enough to build strong brand recognition.",
+    solution: "Developed comprehensive brand identity systems including logo design, color palettes, typography, and visual assets. Created detailed brand guidelines to ensure consistency across all touchpoints and designed marketing collateral that effectively communicates the brand's message.",
+    results: [
+      "Established strong visual identities for 3 major clients",
+      "Created scalable design systems for cross-platform consistency",
+      "Delivered comprehensive brand guidelines",
+      "Positive client feedback and successful market launches"
+    ],
+    technologies: ["Adobe Illustrator", "Photoshop", "Brand Strategy", "Visual Design", "Typography"],
+    subProjects: [
+      {
+        id: "project-00",
+        title: "Redefining Digital Presence",
+        description: "A strategic overhaul of the brand's digital footprints, focusing on minimalism and user-centric design principles. This project involved deep user research to understand the core demographic, resulting in a visual language that speaks directly to the modern consumer. The result is a fluid, responsive identity system that adapts seamlessly across mobile, web, and print mediums, establishing a distinct market position.",
+        images: [p0_1, p0_2, p0_3, p0_4, p0_5]
+      },
+      {
+        id: "project-01",
+        title: "Evolving the Brand Narrative",
+        description: "Transitioning a legacy brand into the digital age without losing its heritage. We carefully balanced traditional elements with modern typography and vibrant color palettes to create a bridge between the past and the future. Key deliverables included a comprehensive style guide, motion assets for digital campaigns, and a complete redesign of the flagship product interface.",
+        images: [p1_1, p1_2, p1_3, p1_4, p1_5, p1_6]
+      },
+      {
+        id: "project-02",
+        title: "Tech-Forward Visual Systems",
+        description: "Developing a cutting-edge visual identity for a high-growth fintech startup. The design system prioritizes trust and clarity, utilizing clean lines and data visualization to communicate complex financial concepts simply. We built a robust component library that allowed the internal team to scale rapid product iterations while maintaining visual consistency across the entire ecosystem.",
+        images: [p2_1, p2_2, p2_3, p2_4, p2_5]
+      }
+    ]
   }
+
 };
 
 const CaseStudy = () => {
   const { slug } = useParams<{ slug: string }>();
   const project = slug ? projectData[slug] : null;
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeSubProject, setActiveSubProject] = useState<string | null>(null);
+
+  const openLightbox = (subProjectId: string) => {
+    setActiveSubProject(subProjectId);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setActiveSubProject(null);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!lightboxOpen) return;
+      if (e.key === "Escape") closeLightbox();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxOpen]);
 
   if (!project) {
+
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -145,88 +245,102 @@ const CaseStudy = () => {
           </div>
         </div>
 
-        {/* Hero Image */}
-        <div className="container mx-auto mt-12 px-4 md:px-8 lg:px-12">
-          <div className="mx-auto max-w-6xl overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full object-cover aspect-video"
-              loading="eager"
-            />
+
+
+        {/* Sub Projects (Bento Grids) */}
+        {project.subProjects && (
+          <div className="space-y-32 mt-12 w-full px-6 md:px-12 lg:px-24">
+            {project.subProjects.map((subProject) => (
+              <section key={subProject.id} className="space-y-8 w-full max-w-3xl mx-auto">
+                <div className="space-y-2 max-w-3xl mx-auto">
+                  <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+                    {subProject.title}
+                  </h2>
+                  <p className="text-lg text-muted-foreground">
+                    {subProject.description}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
+                  {subProject.images.map((img, idx) => {
+                    let className = "relative overflow-hidden rounded-xl bg-muted group cursor-pointer border border-zinc-200/50 dark:border-zinc-800/50";
+                    const totalImages = subProject.images.length;
+
+                    // Grid Logic for 4-column layout
+                    if (idx === 0) {
+                      // Hero image: 2x2
+                      className += " md:col-span-2 md:row-span-2";
+                    } else if (totalImages === 6 && idx === 5) {
+                      // For 6 images: Last one takes full width to balance the bottom row
+                      className += " md:col-span-4";
+                    } else {
+                      // Standard: 1x1
+                      className += " md:col-span-1";
+                    }
+
+                    return (
+                      <div
+                        key={idx}
+                        className={className}
+                        onClick={() => openLightbox(subProject.id)}
+                      >
+                        <img
+                          src={img}
+                          alt={`${subProject.title} - ${idx + 1}`}
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
+            ))}
           </div>
-        </div>
+        )}
 
-        {/* Content Section */}
-        <div className="container mx-auto px-6 py-16 md:px-12 lg:px-24">
-          <div className="mx-auto max-w-3xl space-y-16">
+        {/* Lightbox Overlay */}
+        {/* Lightbox Overlay */}
+        {lightboxOpen && activeSubProject && (
+          <div
+            className="fixed inset-0 z-[100] flex justify-center bg-black/95 backdrop-blur-sm animate-in fade-in duration-200 overflow-y-auto"
+            onClick={closeLightbox}
+          >
+            <button
+              onClick={closeLightbox}
+              className="fixed right-6 top-6 rounded-full bg-black/50 p-2 text-white hover:bg-white/20 transition-colors z-[110]"
+            >
+              <X className="h-6 w-6" />
+            </button>
 
-            {/* Introduction / Description */}
-            <div className="text-xl leading-relaxed text-muted-foreground md:text-2xl">
-              {project.description}
+            <div
+              className="w-full max-w-5xl px-4 py-16 flex flex-col gap-8 items-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {project.subProjects?.find(p => p.id === activeSubProject)?.images.map((img, idx) => (
+                <img
+                  key={idx}
+                  src={img}
+                  alt={`Project detail ${idx + 1}`}
+                  className="w-full h-auto object-contain rounded-lg shadow-2xl"
+                  loading="lazy"
+                />
+              ))}
             </div>
+          </div>
+        )}
 
-            {/* Challenge Section */}
-            <section>
-              <h2 className="mb-6 text-sm font-bold uppercase tracking-widest text-primary">
-                The Challenge
-              </h2>
-              <p className="text-xl leading-relaxed text-foreground/90">
-                {project.challenge}
-              </p>
-            </section>
 
-            {/* Solution Section */}
-            <section>
-              <h2 className="mb-6 text-sm font-bold uppercase tracking-widest text-primary">
-                The Solution
-              </h2>
-              <p className="text-xl leading-relaxed text-foreground/90">
-                {project.solution}
-              </p>
-            </section>
-
-            {/* Results Section */}
-            <section className="rounded-2xl bg-muted/30 p-8 md:p-10">
-              <h2 className="mb-6 text-sm font-bold uppercase tracking-widest text-primary">
-                Key Results
-              </h2>
-              <ul className="grid gap-4 md:grid-cols-2">
-                {project.results.map((result, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span className="text-base text-foreground/80">{result}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            {/* Technologies Section */}
-            <section>
-              <h2 className="mb-6 text-sm font-bold uppercase tracking-widest text-muted-foreground">
-                Technologies & Tools
-              </h2>
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border bg-background px-4 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:border-foreground/20"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </section>
-
-            {/* Navigation */}
-            <div className="border-t pt-12">
-              <Link to="/">
-                <Button variant="outline" size="lg" className="gap-2 group">
-                  <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-                  View All Projects
-                </Button>
-              </Link>
-            </div>
+        {/* Navigation */}
+        <div className="container mx-auto px-6 pt-12 md:px-12 lg:px-24">
+          <div className="border-t pt-12">
+            <Link to="/">
+              <Button variant="outline" size="lg" className="gap-2 group">
+                <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+                View All Projects
+              </Button>
+            </Link>
           </div>
         </div>
       </article>

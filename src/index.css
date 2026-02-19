@@ -83,12 +83,18 @@
     @apply border-border;
   }
 
+  html,
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+
   }
 
-  h1, h2, h3 {
+
+
+  h1,
+  h2,
+  h3 {
     font-family: var(--font-display);
     font-weight: 700;
   }
