@@ -1,38 +1,36 @@
 import { Link } from "react-router-dom";
-import work1 from "@/assets/work-1.jpg";
-import work2 from "@/assets/work-2.jpg";
-import work3 from "@/assets/work-3.jpg";
-import work4 from "@/assets/work-4.jpg";
-import brandingCover from "@/assets/Branding-cover-image.gif";
 import project02Cover from "@/assets/Project02-01.jpg";
-
-
+import dfmCover from "@/assets/DFM-landing-page.png";
+import olaCover from "@/assets/Ola-office-cover-1.png";
+import mediaAntCover from "@/assets/The-media-ant-cover.png";
 
 const projects = [
   {
-    id: "architecting-phonepe-consumer-app-voice",
-    title: "Architecting the PhonePe Consumer app's voice",
-    description: "How we defined a voice for that was consistently resonant across all contexts",
-    image: work1,
+    id: "ola-office",
+    title: "OLA Office Solving the \"Middle Class Commute\" Problem",
+    description: "This case study explores OLA Office — a feature designed within OLA Cabs app.",
+    image: olaCover,
     colSpan: "md:col-span-4",
+    externalLink: "https://www.behance.net/gallery/241349815/OLA-Office-Solving-the-Middle-Class-Commute-Problem"
   },
   {
-    id: "building-custom-tooling-design-velocity",
-    title: "Building custom tooling to increase design velocity",
-    description: "How we free up our designers' intuition by streamlining the logistics of design",
-    image: work2,
+    id: "media-ant",
+    title: "The Media Ant Website UX Enhancement Case Study",
+    description: "Improving usability, clarity, and conversion across The Media Ant platform through a user-centered redesign.",
+    image: mediaAntCover,
     colSpan: "md:col-span-2",
+    externalLink: "https://www.behance.net/gallery/215195761/The-Media-Ant-Website-UX-Enhancement-Case-Study"
   },
   {
-    id: "creating-ds-documentation-empowers",
-    title: "Creating DS documentation that empowers",
-    description: "The story of how we built the documentation hub for Mint DS",
-    image: work3,
+    id: "landing-pages",
+    title: "Landing Page Design",
+    description: "Designing high-conversion marketing and SaaS websites with a focus on clarity and visual excellence.",
+    image: dfmCover,
     colSpan: "md:col-span-3",
   },
   {
-    id: "forging-distinct-identity",
-    title: "Forging a distinct identity",
+    id: "logo-and-branding",
+    title: "Logo and branding",
     description: "Crafting a cohesive visual language that resonates with users and stands the test of time.",
     image: project02Cover,
     colSpan: "md:col-span-3",
@@ -61,35 +59,69 @@ const WorkSection = () => {
                 key={project.id}
                 className={`${project.colSpan} group`}
               >
-                <Link
-                  to={`/case-study/${project.id}`}
-                  className="block w-full"
-                >
-                  {/* Image Block - separate */}
-                  <div className={`relative mb-5 w-full overflow-hidden rounded-xl ${isLarge
-                    ? "aspect-[16/9]"
-                    : isBottomCard
-                      ? "aspect-[2/1]"
-                      : "aspect-[4/3]"
-                    }`}>
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
+                {project.externalLink ? (
+                  <a
+                    href={project.externalLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full"
+                  >
+                    {/* Image Block - separate */}
+                    <div className={`relative mb-5 w-full overflow-hidden rounded-xl ${isLarge
+                      ? "aspect-[16/9]"
+                      : isBottomCard
+                        ? "aspect-[2/1]"
+                        : "aspect-[4/3]"
+                      }`}>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
 
-                  {/* Text Block - separate */}
-                  <div className="flex w-full flex-col">
-                    <h3 className="mb-2 text-lg font-bold leading-tight text-[#1a1a1a] md:text-xl">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-[#666666] md:text-base">
-                      {project.description}
-                    </p>
-                  </div>
-                </Link>
+                    {/* Text Block - separate */}
+                    <div className="flex w-full flex-col">
+                      <h3 className="mb-2 text-lg font-bold leading-tight text-[#1a1a1a] md:text-xl">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-[#666666] md:text-base">
+                        {project.description}
+                      </p>
+                    </div>
+                  </a>
+                ) : (
+                  <Link
+                    to={`/case-study/${project.id}`}
+                    className="block w-full"
+                  >
+                    {/* Image Block - separate */}
+                    <div className={`relative mb-5 w-full overflow-hidden rounded-xl ${isLarge
+                      ? "aspect-[16/9]"
+                      : isBottomCard
+                        ? "aspect-[2/1]"
+                        : "aspect-[4/3]"
+                      }`}>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+
+                    {/* Text Block - separate */}
+                    <div className="flex w-full flex-col">
+                      <h3 className="mb-2 text-lg font-bold leading-tight text-[#1a1a1a] md:text-xl">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-[#666666] md:text-base">
+                        {project.description}
+                      </p>
+                    </div>
+                  </Link>
+                )}
               </div>
             );
           })}

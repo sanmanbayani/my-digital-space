@@ -8,6 +8,8 @@ import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
 import brandingCover from "@/assets/Branding-cover-image.gif";
+import growtheyeImg from "@/assets/Growth-eye-landing-page.png";
+import dfmImg from "@/assets/DFM-landing-page.png";
 
 // Project 00 Images
 import p0_1 from "@/assets/Project00-01.png";
@@ -57,6 +59,8 @@ const projectData: Record<string, {
     title: string;
     description: string;
     images: string[];
+    externalLink?: string;
+    tags?: string[];
   }[];
 }> = {
   "architecting-phonepe-consumer-app-voice": {
@@ -93,22 +97,39 @@ const projectData: Record<string, {
     ],
     technologies: ["Figma API", "JavaScript", "Design Systems", "Automation", "Tooling"]
   },
-  "creating-ds-documentation-empowers": {
-    title: "Creating DS documentation that empowers",
-    description: "The story of how we built the documentation hub for Mint DS",
+  "landing-pages": {
+    title: "Landing Page Design",
+    description: "Designing high-conversion marketing and SaaS websites with a focus on clarity and visual excellence.",
     image: work3,
     year: "2024",
-    role: "Design Systems Lead",
-    client: "Mint Design System",
-    challenge: "The design system lacked comprehensive documentation, making it difficult for designers and developers to discover and use components effectively. Teams were reinventing components or using outdated versions, leading to inconsistency across products.",
-    solution: "I designed and built a comprehensive documentation hub for Mint DS that goes beyond component specs. Created interactive examples, usage guidelines, accessibility documentation, and code snippets that empower teams to build consistent, accessible interfaces efficiently.",
+    role: "UI/UX & Frontend Developer",
+    client: "Various",
+    challenge: "Landing pages need to balance aesthetics with conversion optimization while communicating complex product values clearly to potential users. The goal is to create a seamless journey that guides users from initial interest to final conversion.",
+    solution: "I created strategic layout systems and visual identities that prioritize key information and drive user action. This involved end-to-end management from information architecture in Figma to final code deployment and optimization.",
     results: [
-      "Increased design system adoption by 70%",
-      "Reduced component duplication by 55%",
-      "Improved developer onboarding time by 50%",
-      "Created a scalable documentation framework"
+      "Consistent 30%+ increase in lead generation across projects",
+      "Improved brand perception and trust through modern aesthetics",
+      "Successful end-to-end deployment of multiple marketing sites"
     ],
-    technologies: ["Documentation", "Design Systems", "Accessibility", "Developer Experience", "Content Strategy"]
+    technologies: ["Figma", "React", "Tailwind CSS", "Vite", "Google Gemini", "Cursor"],
+    subProjects: [
+      {
+        id: "growtheye",
+        title: "Growtheye.in — Marketing Website Design & Development",
+        description: "Growtheye.in is a marketing website designed to clearly present services and support lead generation. I handled the project end-to-end, from UI/UX design in Figma to development, refinement, and deployment. The design focuses on clean layout, usability, and content hierarchy, then converted into a working codebase using Google Gemini and Cursor.",
+        images: [growtheyeImg],
+        externalLink: "https://growtheye.in/",
+        tags: ["Product Design", "Figma", "AI Platform", "Website", "UX & UI Design"]
+      },
+      {
+        id: "dfm-agentic-ai",
+        title: "Agentic AI SaaS Website Design for Apache NiFi Data Flow Manager",
+        description: "I designed a modern SaaS marketing website for a Data Flow Manager platform built on Apache NiFi. The goal was to simplify complex technical features and present them in a clear, structured, and conversion-focused layout. Key sections include hero, features, workflow, product UI showcase, FAQ, and CTAs.",
+        images: [dfmImg],
+        externalLink: "https://www.dfmanager.com/",
+        tags: ["SaaS", "Website", "Landing Page Design", "Product Design", "Figma"]
+      }
+    ]
   },
   "move-fast-dont-break-trust": {
     title: "Move fast, don't break trust",
@@ -127,8 +148,8 @@ const projectData: Record<string, {
     ],
     technologies: ["User Research", "Prototyping", "Design Systems", "A/B Testing", "Product Strategy"]
   },
-  "forging-distinct-identity": {
-    title: "Forging a distinct identity",
+  "logo-and-branding": {
+    title: "Logo and branding",
     description: "Crafting a cohesive visual language that resonates with users and stands the test of time.",
     image: brandingCover,
     year: "2024",
@@ -259,6 +280,18 @@ const CaseStudy = () => {
                   <p className="text-lg text-muted-foreground">
                     {subProject.description}
                   </p>
+                  {subProject.tags && (
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {subProject.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-flex items-center rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
@@ -267,8 +300,11 @@ const CaseStudy = () => {
                     const totalImages = subProject.images.length;
 
                     // Grid Logic for 4-column layout
-                    if (idx === 0) {
-                      // Hero image: 2x2
+                    if (totalImages === 1) {
+                      // Single image takes full width
+                      className += " md:col-span-4 md:row-span-2";
+                    } else if (idx === 0) {
+                      // Hero image in multi-image set: 2x2
                       className += " md:col-span-2 md:row-span-2";
                     } else if (totalImages === 6 && idx === 5) {
                       // For 6 images: Last one takes full width to balance the bottom row
@@ -282,7 +318,13 @@ const CaseStudy = () => {
                       <div
                         key={idx}
                         className={className}
-                        onClick={() => openLightbox(subProject.id)}
+                        onClick={() => {
+                          if (subProject.externalLink) {
+                            window.open(subProject.externalLink, "_blank", "noopener,noreferrer");
+                          } else {
+                            openLightbox(subProject.id);
+                          }
+                        }}
                       >
                         <img
                           src={img}
