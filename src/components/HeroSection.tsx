@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import heroBg from "@/assets/Hero-bg-4.png";
+import heroBg from "@/assets/Hero-bg-4.jpg";
 import resumePdf from "@/assets/Sanman Resume.pdf";
 import Hotspot from "./ui/Hotspot";
 

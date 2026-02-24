@@ -5,7 +5,7 @@ import img2 from "@/assets/Carousel-image-02.webp";
 import img3 from "@/assets/Carousel-image-03.webp";
 import img4 from "@/assets/Carousel-image-04.webp";
 import img5 from "@/assets/Carousel-image-05.webp";
-import img6 from "@/assets/Carousel-image-06.webp";
+import img6 from "@/assets/Carousel-image-06.jpg";
 
 const row1 = [img1, img2, img3];
 const row2 = [img4, img5, img6];

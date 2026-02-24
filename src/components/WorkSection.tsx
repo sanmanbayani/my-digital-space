@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import project02Cover from "@/assets/Project02-01.jpg";
-import dfmCover from "@/assets/DFM-landing-page.png";
-import olaCover from "@/assets/Ola-office-cover-1.png";
-import mediaAntCover from "@/assets/The-media-ant-cover.png";
+import dfmCover from "@/assets/DFM-landing-page.jpg";
+import olaCover from "@/assets/Ola-office-cover-1.jpg";
+import mediaAntCover from "@/assets/The-media-ant-cover.jpg";
 
 const projects = [
   {

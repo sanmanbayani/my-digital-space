@@ -9,7 +9,7 @@ import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
 import brandingCover from "@/assets/Branding-cover-image.gif";
 import growtheyeImg from "@/assets/Growth-eye-landing-page.png";
-import dfmImg from "@/assets/DFM-landing-page.png";
+import dfmImg from "@/assets/DFM-landing-page.jpg";
 
 // Project 00 Images
 import p0_1 from "@/assets/Project00-01.png";
