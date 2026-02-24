@@ -8,7 +8,7 @@ const skills = [
 
 const SkillsCloud = () => {
     return (
-        <div className="w-full h-full min-h-[300px] bg-white dark:bg-zinc-900 rounded-xl border border-border p-6 flex flex-col overflow-hidden relative">
+        <div className="w-full h-full min-h-[300px] bg-white dark:bg-zinc-900 rounded-[2.5rem] border border-border p-6 flex flex-col overflow-hidden relative">
             <h3 className="text-xl font-bold mb-4 z-10 relative">Tech Stack</h3>
 
             <div className="flex-1 flex flex-wrap content-center gap-3 overflow-y-auto z-10 relative no-scrollbar">

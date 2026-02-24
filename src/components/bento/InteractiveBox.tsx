@@ -17,7 +17,7 @@ const InteractiveBox = () => {
     return (
         <div
             ref={containerRef}
-            className="relative w-full h-full min-h-[300px] bg-secondary/50 rounded-xl overflow-hidden border border-border flex items-center justify-center"
+            className="relative w-full h-full min-h-[300px] bg-secondary/50 rounded-[2.5rem] overflow-hidden border border-border flex items-center justify-center"
         >
             <p className="absolute top-4 left-4 text-xs font-mono text-muted-foreground uppercase tracking-widest pointer-events-none">
                 Playground

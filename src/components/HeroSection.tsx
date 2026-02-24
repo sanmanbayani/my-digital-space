@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import heroBg from "@/assets/Hero-bg-4.png";
+import resumePdf from "@/assets/Sanman Resume.pdf";
 import Hotspot from "./ui/Hotspot";
 
 const hotspots = [
@@ -55,7 +56,9 @@ const HeroSection = () => {
             </a>
           ))}
           <a
-            href="#"
+            href={resumePdf}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full border border-foreground/10 px-5 py-2 text-sm font-medium uppercase tracking-widest text-muted-foreground transition-all hover:border-foreground/40 hover:text-foreground"
           >
             My Resume
@@ -92,7 +95,9 @@ const HeroSection = () => {
                   </a>
                 ))}
                 <a
-                  href="#"
+                  href={resumePdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsMenuOpen(false)}
                   className="mt-4 inline-block rounded-full border border-foreground/20 px-8 py-3 text-sm font-bold uppercase tracking-widest text-foreground"
                 >

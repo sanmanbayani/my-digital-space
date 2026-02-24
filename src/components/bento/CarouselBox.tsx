@@ -1,14 +1,14 @@
 
 import { motion } from "framer-motion";
-import about1 from "@/assets/about-1.jpg";
-import about2 from "@/assets/about-2.jpg";
-import work1 from "@/assets/work-1.jpg";
-import work2 from "@/assets/work-2.jpg";
-import work3 from "@/assets/work-3.jpg";
-import work4 from "@/assets/work-4.jpg";
+import img1 from "@/assets/Carousel-image-01.webp";
+import img2 from "@/assets/Carousel-image-02.webp";
+import img3 from "@/assets/Carousel-image-03.webp";
+import img4 from "@/assets/Carousel-image-04.webp";
+import img5 from "@/assets/Carousel-image-05.webp";
+import img6 from "@/assets/Carousel-image-06.webp";
 
-const row1 = [about1, work1, about2, work2];
-const row2 = [work3, about1, work4, about2];
+const row1 = [img1, img2, img3];
+const row2 = [img4, img5, img6];
 
 // Helper to double the items for seamless loop
 const MarqueeRow = ({ items, direction = "left", speed = 30 }: { items: string[], direction?: "left" | "right", speed?: number }) => {

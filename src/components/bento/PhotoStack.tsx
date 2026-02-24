@@ -20,7 +20,7 @@ const PhotoStack = () => {
 
     return (
         <div
-            className="relative w-full h-full min-h-[300px] cursor-pointer overflow-hidden rounded-xl bg-card border border-border"
+            className="relative w-full h-full min-h-[300px] cursor-pointer overflow-hidden rounded-[2.5rem] bg-card border border-border"
             onClick={nextPhoto}
         >
             <div className="absolute inset-0 flex items-center justify-center bg-muted/20">

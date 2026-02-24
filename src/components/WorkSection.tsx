@@ -67,7 +67,7 @@ const WorkSection = () => {
                     className="block w-full"
                   >
                     {/* Image Block - separate */}
-                    <div className={`relative mb-5 w-full overflow-hidden rounded-xl ${isLarge
+                    <div className={`relative mb-5 w-full overflow-hidden rounded-[2.5rem] ${isLarge
                       ? "aspect-[16/9]"
                       : isBottomCard
                         ? "aspect-[2/1]"
@@ -97,7 +97,7 @@ const WorkSection = () => {
                     className="block w-full"
                   >
                     {/* Image Block - separate */}
-                    <div className={`relative mb-5 w-full overflow-hidden rounded-xl ${isLarge
+                    <div className={`relative mb-5 w-full overflow-hidden rounded-[2.5rem] ${isLarge
                       ? "aspect-[16/9]"
                       : isBottomCard
                         ? "aspect-[2/1]"
