@@ -43,7 +43,7 @@ const WorkSection = () => {
       <div className="mx-auto max-w-7xl">
         <header className="mb-14 text-center md:mb-20">
           <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-            Selected Work
+            My Work
           </h2>
           <p className="mt-3 max-w-2xl mx-auto text-muted-foreground md:text-lg">
             A selection of projects spanning product design, design systems, and user research.

@@ -47,7 +47,9 @@ const FooterSection = () => {
             Email
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/in/sanmanbayani/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             LinkedIn
