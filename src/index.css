@@ -47,6 +47,25 @@
 
     --font-display: 'Anek Latin', sans-serif;
     --font-body: 'Anek Latin', sans-serif;
+
+    --illustration-ink: #292c2a;
+    --illustration-paper: #ffffff;
+    --illustration-line: #dce3de;
+    --illustration-shadow: #edf0ed;
+    --illustration-coral: #ea8b76;
+    --illustration-coral-light: #f4bba8;
+    --illustration-coral-dark: #c46c5b;
+    --illustration-green: #789c85;
+    --illustration-green-dark: #3f6357;
+    --illustration-green-light: #c5d9c5;
+    --illustration-yellow: #edc56b;
+    --illustration-yellow-light: #fcf0cd;
+    --illustration-yellow-dark: #cba44e;
+    --illustration-lavender: #b7b7d5;
+    --illustration-sky: #e9f2f1;
+    --illustration-sunlight: #faf6e9;
+    --illustration-skin: #dca17d;
+    --illustration-skin-shadow: #b97c5d;
   }
 
   .dark {
@@ -76,6 +95,59 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+}
+
+.hero-illustration {
+  width: 100%;
+  overflow: hidden;
+  margin-top: -12px;
+}
+
+.hero-illustration-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 1920px;
+  margin-inline: auto;
+}
+
+.illustration-leaves {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: illustration-sway 7s ease-in-out infinite alternate;
+}
+
+.illustration-steam {
+  animation: illustration-breathe 4s ease-in-out infinite;
+}
+
+.illustration-doodle {
+  animation: illustration-breathe 6s ease-in-out infinite;
+}
+
+@keyframes illustration-sway {
+  from { transform: rotate(-1deg); }
+  to { transform: rotate(1.5deg); }
+}
+
+@keyframes illustration-breathe {
+  0%, 100% { opacity: .55; }
+  50% { opacity: 1; }
+}
+
+@media (max-width: 767px) {
+  .hero-illustration { margin-top: 12px; }
+  .hero-illustration-art {
+    width: 850px;
+    max-width: none;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .illustration-leaves, .illustration-steam, .illustration-doodle { animation: none; }
 }
 
 @layer base {
